@@ -1,0 +1,89 @@
+<div class="container-fluid">
+   
+    <h3>SignUp</h3>
+    
+    <form #customerForm="ngForm" (ngSubmit)='onSubmit(customerForm.value)'>
+    
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label">Customer ID </label>
+            <div class="col-sm-3">
+            <input type="number" class="form-control" #uid='ngModel' name="customerId" ngModel
+             [ngClass]="{'is-invalid':uid.invalid && uid.touched,'is-valid':uid.valid}" required>
+            
+        </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label">CustomerName </label>
+            <div class="col-sm-3">
+            <input required minlength="5" type="text" #un='ngModel' name="customerName" ngModel class="form-control">
+            <div *ngIf='un.errors
+                        && un.touched' class="alert alert-danger">
+                <div [hidden]='!un.errors.required'>
+                    Provide Customer Name
+                </div>
+                <div *ngIf='un.errors.pattern'>Name should be minimum of 6 characters length</div>
+            </div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label">CustomerType </label>
+            <div class="col-sm-3">
+            <input required type="text" #ut='ngModel' name="customerType" ngModel class="form-control">
+            <div *ngIf='ut.errors
+                        && ut.touched' class="alert alert-danger">
+                <div [hidden]='!ut.errors.required'>
+                    Provide Customer Type
+                </div>
+            </div>
+        </div>
+        </div>
+    
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label">Password </label>
+            <div class="col-sm-3">
+            <input required minlength="4" type="password" #p='ngModel' name="customerPassword" ngModel class="form-control">
+    
+            <div *ngIf='p.errors && p.touched' class="alert alert-danger">
+    
+                <div [hidden]='!p.errors.required'> Provide Password </div>
+                <div *ngIf='p.errors.pattern'>Name should be minimum of 6 characters length</div>
+    
+            </div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label">PhoneNumber </label>
+            <div class="col-sm-3">
+            <input required min="10" type="number" #ph='ngModel' name="customerPhoneno" ngModel class="form-control">
+            <div *ngIf='ph.errors
+                        && ph.touched' class="alert alert-danger">
+                <div [hidden]='!ph.errors.required'>
+                    Provide Phonenumber
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label">Email ID </label>
+            <div class="col-sm-3">
+            <input required type="email" #ue='ngModel' name="customerEmail" ngModel class="form-control">
+            <div *ngIf='ue.errors
+                        && ue.touched' class="alert alert-danger">
+                <div [hidden]='!ue.errors.required'>
+                    Provide Mail
+                </div>
+            </div>
+        </div>
+        </div>
+
+    
+        <input [disabled]="customerForm.invalid" type="submit" value="Sign Up" class="btn btn-success">
+    
+    </form>
+
+</div>
+    
+    
