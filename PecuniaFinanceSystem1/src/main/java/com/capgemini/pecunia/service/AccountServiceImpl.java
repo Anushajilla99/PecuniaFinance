@@ -1,5 +1,5 @@
 package com.capgemini.pecunia.service;
 
-public class AccountServiceImpl {
+public interface AccountServiceImpl {
 
 }

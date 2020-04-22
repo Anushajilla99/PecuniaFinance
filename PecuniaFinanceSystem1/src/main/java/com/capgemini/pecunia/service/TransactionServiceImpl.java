@@ -1,5 +1,5 @@
 package com.capgemini.pecunia.service;
 
-public class TransactionServiceImpl {
+public interface TransactionServiceImpl {
 
 }
