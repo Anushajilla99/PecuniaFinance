@@ -1,5 +1,5 @@
 package com.capgemini.pecunia.dao;
 
-public class PecuniaDao {
+public class AccountDaoImpl {
 
 }
