@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.capgemini.pecunia.bean.Account;
 
+
 public interface AccountDao {
 
 	Account deleteByAccountnum(int accountnumber);

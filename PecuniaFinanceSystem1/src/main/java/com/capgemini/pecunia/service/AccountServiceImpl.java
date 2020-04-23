@@ -13,6 +13,7 @@ import com.capgemini.pecunia.dao.AccountDaoImpl;
 @Transactional
 public class AccountServiceImpl implements AccountService 
 {
+	
 @Autowired
 AccountDaoImpl dao;
 

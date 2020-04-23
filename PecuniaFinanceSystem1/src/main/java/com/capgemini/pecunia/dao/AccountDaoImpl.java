@@ -32,7 +32,6 @@ public class AccountDaoImpl implements AccountDao {
 		List<Account> aclist=q.getResultList();
 		return aclist;
 	}
-	
 	@Override
 	public Account updateAccount(Account ac) {
 		Account a=em.find(Account.class,ac.getAccountnumber());
