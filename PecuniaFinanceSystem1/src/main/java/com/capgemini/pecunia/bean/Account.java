@@ -5,12 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "Account")
 public class Account {
 	@Id
-	
 	private int accountnumber;
 
 	private String cust_name;
