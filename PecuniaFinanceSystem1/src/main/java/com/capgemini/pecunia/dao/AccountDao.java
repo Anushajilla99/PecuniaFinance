@@ -2,18 +2,19 @@ package com.capgemini.pecunia.dao;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.capgemini.pecunia.bean.Account;
 
+public interface AccountDao  {
 
-public interface AccountDao {
-
-	Account deleteByAccountnum(int accountnumber);
+	Account deleteByAccountnum(long accountNumber);
 
 	List<Account> getAllAccount();
 
-	Account getAccountByAccnum(int accountnumber);
+	Account getAccountByAccnum(long accountNumber);
 
 	Account accountCreation(Account ac);
 
-	Account updateAccount(Account ac);
+	Account update(Account ac);
 }

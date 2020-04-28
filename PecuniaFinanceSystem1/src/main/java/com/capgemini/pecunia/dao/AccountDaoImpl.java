@@ -21,9 +21,9 @@ public class AccountDaoImpl implements AccountDao {
 	}
 	
 	@Override
-	public Account getAccountByAccnum(int accountnumber) {
+	public Account getAccountByAccnum(long accountNumber) {
 		
-		return em.find(Account.class,accountnumber);
+		return em.find(Account.class,accountNumber);
 	}
 	
 	@Override
@@ -32,22 +32,29 @@ public class AccountDaoImpl implements AccountDao {
 		List<Account> aclist=q.getResultList();
 		return aclist;
 	}
+	
 	@Override
-	public Account updateAccount(Account ac) {
-		Account a=em.find(Account.class,ac.getAccountnumber());
+	public Account update(Account ac) {
+		Account a=em.find(Account.class,ac.getAccountNumber());
 		if(a!=null)
 		{
+			a.setAccountNumber(ac.getAccountNumber());
 			a.setCust_name(ac.getCust_name());
-			a.setDate_creation(ac.getDate_creation());
-			a.setAccount_balance(ac.getAccount_balance());
-			
+			a.setContact(ac.getContact());
+			a.setAddressLine1(ac.getAddressLine1());
+			a.setAddressLine2(ac.getAddressLine2());
+			a.setCity(ac.getCity());
+			a.setCountry(ac.getCountry());
+			a.setState(ac.getState());
+			a.setZipCode(ac.getZipCode());
+			a.setAadhar(ac.getAadhar());
 		}
 		return a;
 			
 	}
 	@Override	
-	public Account deleteByAccountnum(int accountnumber) {
-		Account a=em.find(Account.class,accountnumber);
+	public Account deleteByAccountnum(long accountNumber) {
+		Account a=em.find(Account.class,accountNumber);
 		if(a!=null)
 			{em.remove(a);
 			}

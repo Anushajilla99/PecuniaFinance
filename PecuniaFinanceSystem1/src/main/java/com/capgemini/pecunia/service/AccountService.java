@@ -8,13 +8,12 @@ public interface AccountService {
 
 	Account accountCreation(Account ac);
 
-	Account getAccountByAccnum(int accuntnumber);
+	Account getAccountByAccnum(int accuntNumber);
 
 	List<Account> getAllAccount();
 
-	Account deleteByAccountnum(int accountnumber);
+	Account deleteByAccountnum(int accountNumber);
 
-	Account updateAccount(Account ac);
-	
+	Account update(Account ac);
 
 }

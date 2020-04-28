@@ -13,7 +13,6 @@ import com.capgemini.pecunia.dao.AccountDaoImpl;
 @Transactional
 public class AccountServiceImpl implements AccountService 
 {
-	
 @Autowired
 AccountDaoImpl dao;
 
@@ -23,9 +22,9 @@ public Account accountCreation(Account ac) {
 }
 
 @Override
-public Account getAccountByAccnum(int accountnumber) 
+public Account getAccountByAccnum(int accountNumber) 
 {
-return dao.getAccountByAccnum(accountnumber);
+return dao.getAccountByAccnum(accountNumber);
 }
 
 @Override
@@ -35,14 +34,14 @@ return dao.getAllAccount();
 }
 
 @Override
-public Account deleteByAccountnum(int accountnumber) 
+public Account deleteByAccountnum(int accountNumber) 
 {
-	return dao.deleteByAccountnum(accountnumber);
+	return dao.deleteByAccountnum(accountNumber);
 }
 
 @Override
-public Account updateAccount(Account ac) {
-	return dao.updateAccount(ac);	
+public Account update(Account ac) {
+	return dao.update(ac);	
 }
 
 }

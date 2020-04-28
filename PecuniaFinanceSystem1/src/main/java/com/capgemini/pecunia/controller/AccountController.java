@@ -23,10 +23,12 @@ import com.capgemini.pecunia.bean.Account;
 
 @RestController
 @RequestMapping("/account")
-//@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 public class AccountController {
 	@Autowired
 	AccountService serviceobj;
+
+	// Create Account
 	@PostMapping("/AccountCreation")
 	public ResponseEntity<String> accountCreation(@RequestBody Account ac) {
 		Account a = serviceobj.accountCreation(ac);
@@ -37,10 +39,10 @@ public class AccountController {
 		}
 	}
 
-	
-	@GetMapping("/GetAccount/{accountnumber}")
-	private ResponseEntity<Account> getEmployee(@PathVariable("accountnumber") int accountnumber) {
-		Account a = serviceobj.getAccountByAccnum(accountnumber);
+	// Get Particular Account Data
+	@GetMapping("/GetAccount/{accountNumber}")
+	private ResponseEntity<Account> getAccount(@PathVariable("accountNumber") int accountNumber) {
+		Account a = serviceobj.getAccountByAccnum(accountNumber);
 		if (a == null) {
 			throw new IdNotFoundException("Id does not exist,so we couldn't fetch details");
 		} else {
@@ -48,7 +50,7 @@ public class AccountController {
 		}
 	}
 
-	
+	// Get All Accounts Data
 	@GetMapping("/GetAllAccounts")
 	private ResponseEntity<List<Account>> getAllaccount() {
 		List<Account> aclist = serviceobj.getAllAccount();
@@ -56,10 +58,10 @@ public class AccountController {
 
 	}
 
-	
+	// Updating Account data
 	@PutMapping("/UpdateAccount")
-	public ResponseEntity<String> updateAccount(@RequestBody Account ac) {
-		Account a = serviceobj.updateAccount(ac);
+	public ResponseEntity<String> update(@RequestBody Account ac) {
+		Account a = serviceobj.update(ac);
 		if (a == null) {
 			throw new IdNotFoundException("Update Operation Unsuccessful,Provided Id does not exist");
 		} else {
@@ -67,10 +69,10 @@ public class AccountController {
 		}
 	}
 
-	
-	@DeleteMapping("/DeleteAccount/{accountnumber}")
-	private ResponseEntity<String> delAc(@PathVariable("accountnumber") int accountnumber) {
-		Account a = serviceobj.deleteByAccountnum(accountnumber);
+	// Deleting account
+	@DeleteMapping("/DeleteAccount/{accountNumber}")
+	private ResponseEntity<String> delAc(@PathVariable("accountNumber") int accountNumber) {
+		Account a = serviceobj.deleteByAccountnum(accountNumber);
 		if (a == null) {
 			throw new IdNotFoundException("Delete Operation Unsuccessful,Provided Id does not exist");
 		} else {
