@@ -27,7 +27,6 @@ import com.capgemini.pecunia.bean.Account;
 public class AccountController {
 	@Autowired
 	AccountService serviceobj;
-
 	// Create Account
 	@PostMapping("/AccountCreation")
 	public ResponseEntity<String> accountCreation(@RequestBody Account ac) {
