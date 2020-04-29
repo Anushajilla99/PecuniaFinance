@@ -1,7 +1,5 @@
 package com.capgemini.pecunia.controller;
 
-
-
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +16,6 @@ import com.capgemini.pecunia.service.CreditService;
 //import com.capgemini.pecunia.service;
 @RestController
 @CrossOrigin("http://localhost:4200")
-
 public class CreditController {
 	@Autowired
 	CreditService creditService;
