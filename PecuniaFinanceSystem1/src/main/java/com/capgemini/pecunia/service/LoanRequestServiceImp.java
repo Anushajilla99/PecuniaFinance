@@ -1,4 +1,4 @@
-package com.capgemini.pecunia.service;
+/*package com.capgemini.pecunia.service;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +27,4 @@ public class LoanRequestServiceImp implements LoanRequestService {
 		// TODO Auto-generated method stub
 		return (ArrayList<LoanRequests>) dao.findAll();
 	}
-}
+}*/

@@ -1,4 +1,4 @@
-package com.capgemini.pecunia.dao;
+/*package com.capgemini.pecunia.dao;
 
 import java.util.Optional;
 
@@ -12,6 +12,6 @@ import com.capgemini.pecunia.bean.Account;
 import com.capgemini.pecunia.bean.LoanRequests;
 @Repository
 public interface LoanRequestDao extends JpaRepository<LoanRequests, Integer>{
-	@Query("select det from AccountDetails det where accountId=?1")
+	@Query("select det from Account det where accountNumber=?")
 	Optional<Account> findBank(@Param("c") String s1);
-}
+}*/

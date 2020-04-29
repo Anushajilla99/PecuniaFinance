@@ -17,7 +17,8 @@ import com.capgemini.pecunia.bean.Transaction;
 import com.capgemini.pecunia.service.CreditService;
 //import com.capgemini.pecunia.service;
 @RestController
-@CrossOrigin
+@CrossOrigin("http://localhost:4200")
+
 public class CreditController {
 	@Autowired
 	CreditService creditService;

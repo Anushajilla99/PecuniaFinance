@@ -1,4 +1,4 @@
-package com.capgemini.pecunia.controller;
+/*package com.capgemini.pecunia.controller;
 
 import java.util.ArrayList;
 
@@ -45,6 +45,6 @@ public class LoanController {
 	public ArrayList<LoanDisbursal> getRejectedLoans() {
 		return (ArrayList<LoanDisbursal>) service1.getRejectedLoans();
 	}
-}
+}*/
 
 

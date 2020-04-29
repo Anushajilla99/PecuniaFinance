@@ -15,7 +15,7 @@ public class Account {
 	private long accountNumber;
 	private int custId;
 	private String cust_name;
-	private Date date_creation;
+	private String date_creation;
 	private double account_balance;
 	private String addressLine1;
 	private String addressLine2;
@@ -44,11 +44,11 @@ public class Account {
 		this.cust_name = cust_name;
 	}
 
-	public Date getDate_creation() {
+	public String getDate_creation() {
 		return date_creation;
 	}
 
-	public void setDate_creation(Date date_creation) {
+	public void setDate_creation(String date_creation) {
 		this.date_creation = date_creation;
 	}
 
