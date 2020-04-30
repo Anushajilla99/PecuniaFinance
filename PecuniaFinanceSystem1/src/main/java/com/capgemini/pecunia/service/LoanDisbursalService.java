@@ -1,4 +1,4 @@
-/*package com.capgemini.pecunia.service;
+package com.capgemini.pecunia.service;
 
 import java.util.List;
 
@@ -11,4 +11,4 @@ public interface LoanDisbursalService {
 
 	
 
-}*/
+}

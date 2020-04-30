@@ -1,4 +1,4 @@
-/*package com.capgemini.pecunia.service;
+package com.capgemini.pecunia.service;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -63,4 +63,4 @@ public class LoanDisbursalServiceImp implements LoanDisbursalService {
 		}
 		return dao.findAllRejected();
 	}
-}*/
+}

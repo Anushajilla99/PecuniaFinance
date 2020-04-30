@@ -1,4 +1,4 @@
-/*package com.capgemini.pecunia.service;
+package com.capgemini.pecunia.service;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ public class LoanRequestServiceImp implements LoanRequestService {
 	LoanRequestDao dao;
 	@Override
 	public String loanRequest(LoanRequests loanreq) {
-		String s1 = loanreq.getAccountId();
+		long s1 = loanreq.getAccountId();
 		Optional<Account> details = dao.findBank(s1);
 		if (details.isPresent()) {
 			dao.save(loanreq);
@@ -27,4 +27,4 @@ public class LoanRequestServiceImp implements LoanRequestService {
 		// TODO Auto-generated method stub
 		return (ArrayList<LoanRequests>) dao.findAll();
 	}
-}*/
+}

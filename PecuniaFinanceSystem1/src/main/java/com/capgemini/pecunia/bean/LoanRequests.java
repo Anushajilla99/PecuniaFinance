@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="loanrequests")
 public class LoanRequests {
-	private String accountId;
+	private long accountId;
 	private double loanAmount;
 	private int loanTenure;
 	private int creditScore;
@@ -18,10 +18,10 @@ public class LoanRequests {
 	@Id
 	@GeneratedValue
 	private int loanId;
-	public String getAccountId() {
+	public long getAccountId() {
 		return accountId;
 	}
-	public void setAccountId(String accountId) {
+	public void setAccountId(long accountId) {
 		this.accountId = accountId;
 	}
 	public double getLoanAmount() {
@@ -67,7 +67,7 @@ public class LoanRequests {
 		this.loanId = loanId;
 	}
 	
-	public LoanRequests(String accountId, double loanAmount, int loanTenure, int creditScore, double loanRoi,
+	public LoanRequests(long accountId, double loanAmount, int loanTenure, int creditScore, double loanRoi,
 			String loanStatus, String loanType, int loanId) {
 		super();
 		this.accountId = accountId;

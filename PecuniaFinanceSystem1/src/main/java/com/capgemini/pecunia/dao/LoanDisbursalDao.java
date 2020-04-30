@@ -1,4 +1,4 @@
-/*package com.capgemini.pecunia.dao;
+package com.capgemini.pecunia.dao;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,4 +14,4 @@ public interface LoanDisbursalDao extends JpaRepository<LoanDisbursal, Integer> 
 	List<LoanDisbursal> findAllAccepted();
 	@Query("select r from LoanDisbursal r where loanStatus='rejected'")
 	List<LoanDisbursal> findAllRejected();
-}*/
+}

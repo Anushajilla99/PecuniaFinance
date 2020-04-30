@@ -15,7 +15,7 @@ public class Account {
 	private long accountNumber;
 	private int custId;
 	private String cust_name;
-	private String date_creation;
+	private Date date_creation;
 	private double account_balance;
 	private String addressLine1;
 	private String addressLine2;
@@ -25,8 +25,18 @@ public class Account {
 	private int zipCode;
 	private int aadhar;
 	private String contact;
+	private Date lastUpdated;
+	
 	
 
+
+	public Date getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(Date lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
 
 	public long getAccountNumber() {
 		return accountNumber;
@@ -44,11 +54,11 @@ public class Account {
 		this.cust_name = cust_name;
 	}
 
-	public String getDate_creation() {
+	public Date getDate_creation() {
 		return date_creation;
 	}
 
-	public void setDate_creation(String date_creation) {
+	public void setDate_creation(Date date_creation) {
 		this.date_creation = date_creation;
 	}
 

@@ -1,4 +1,4 @@
-/*package com.capgemini.pecunia.controller;
+package com.capgemini.pecunia.controller;
 
 import java.util.ArrayList;
 
@@ -22,7 +22,7 @@ import antlr.collections.List;
 
 @RestController
 @RequestMapping("/loan")
-//@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 public class LoanController {
 	@Autowired
 	LoanRequestService service;
@@ -45,6 +45,6 @@ public class LoanController {
 	public ArrayList<LoanDisbursal> getRejectedLoans() {
 		return (ArrayList<LoanDisbursal>) service1.getRejectedLoans();
 	}
-}*/
+}
 
 
