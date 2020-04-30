@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -13,9 +14,10 @@ import javax.persistence.Table;
 public class Account {
 	@Id
 	private long accountNumber;
+	//@SequenceGenerator(sequenceName = "custId_seq", allocationSize = 1, name = "custId_seq")
 	private int custId;
 	private String cust_name;
-	private Date date_creation;
+	//private Date date_creation;
 	private double account_balance;
 	private String addressLine1;
 	private String addressLine2;
@@ -54,13 +56,13 @@ public class Account {
 		this.cust_name = cust_name;
 	}
 
-	public Date getDate_creation() {
+	/*public Date getDate_creation() {
 		return date_creation;
 	}
 
 	public void setDate_creation(Date date_creation) {
 		this.date_creation = date_creation;
-	}
+	}*/
 
 	public double getAccount_balance() {
 		return account_balance;

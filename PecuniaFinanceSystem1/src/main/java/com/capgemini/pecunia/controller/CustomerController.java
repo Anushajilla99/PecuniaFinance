@@ -61,7 +61,7 @@ public class CustomerController {
 	}
 	
 	// Delete Customer
-	@DeleteMapping("/DeleteCustomer/{userId}")
+	@DeleteMapping("/DeleteCustomer/{customerId}")
 	private ResponseEntity<String> deleteUser(@PathVariable("customerId") int customerId) {
 		Customerdata e = serviceobj.deleteCustomer(customerId);
 		if (e == null) {
@@ -82,6 +82,19 @@ public class CustomerController {
 			throw new CustomerNotFoundException("Customer not found");
 		}else {
 			return new ResponseEntity<String>("Admin Login successful", new HttpHeaders(), HttpStatus.OK);
+		}
+	}
+	
+	@PutMapping("/login")
+	public ResponseEntity<String> login(@RequestBody Customerdata c)
+	{
+		
+		 boolean flag=serviceobj.login(c);
+		if(flag==false)
+		{
+			throw new CustomerNotFoundException("Customer not found");
+		}else {
+			return new ResponseEntity<String>("customer Login successful", new HttpHeaders(), HttpStatus.OK);
 		}
 	}
 	

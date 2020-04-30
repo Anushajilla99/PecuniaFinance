@@ -7,7 +7,9 @@ import com.capgemini.pecunia.bean.Customerdata;
 public interface CustomerDao {
 
 	Customerdata addCustomer(Customerdata c);
-
+	
+	Boolean login(Customerdata c);
+	
 
 	List<Customerdata> getAllCustomers();
 

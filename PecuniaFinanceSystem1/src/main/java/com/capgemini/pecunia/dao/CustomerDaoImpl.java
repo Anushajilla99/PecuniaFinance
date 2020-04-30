@@ -79,5 +79,33 @@ public class CustomerDaoImpl implements CustomerDao {
     }}
 	return flag;
 	}
+	
+	
+	@Override
+	public Boolean login(Customerdata c) {
+		String a=c.getCustomerName();
+		String b=c.getCustomerPassword();
+		Query q=em.createQuery("select m.customerType from Customerdata m where m.customerName=?1 and m.customerPassword=?2");
+		q.setParameter(1, a);
+		q.setParameter(2,b);
+		Object result = q.getSingleResult();
+		String customerType=result.toString();
+		boolean flag=false;
+		if(customerType.contentEquals("customer"))
+		{
+	Query q1=em.createQuery("select m from Customerdata m where m.customerName=?1 and m.customerPassword=?2");
+	q1.setParameter(1, a);
+	q1.setParameter(2,b);
+	try
+	{
+		Object m=q.getSingleResult();
+		flag=true;
+	}catch(javax.persistence.NoResultException e)
+    {
+        e.printStackTrace();
+    }}
+	return flag;
+	}
+
 }
 	

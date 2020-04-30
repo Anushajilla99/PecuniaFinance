@@ -46,4 +46,9 @@ public Boolean adminLoginCustomer(Customerdata c)
 	return dao.adminLoginCustomer(c);
 }
 
+@Override
+public Boolean login(Customerdata c)
+{
+	return dao.login(c);
+}
 }
