@@ -21,7 +21,7 @@ public class AccountDaoImpl implements AccountDao {
 	}
 	
 	@Override
-	public Account getAccountByAccnum(long accountNumber) {
+	public Account getAccountByAccnum(int accountNumber) {
 		
 		return em.find(Account.class,accountNumber);
 	}
@@ -53,7 +53,7 @@ public class AccountDaoImpl implements AccountDao {
 			
 	}
 	@Override	
-	public Account deleteByAccountnum(long accountNumber) {
+	public Account deleteByAccountnum(int accountNumber) {
 		Account a=em.find(Account.class,accountNumber);
 		if(a!=null)
 			{em.remove(a);

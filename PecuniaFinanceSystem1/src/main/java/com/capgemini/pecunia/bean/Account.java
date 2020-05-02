@@ -1,6 +1,7 @@
 package com.capgemini.pecunia.bean;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,11 +14,11 @@ import javax.persistence.Table;
 @Table(name = "Account5")
 public class Account {
 	@Id
-	private long accountNumber;
+	private int accountNumber;
 	//@SequenceGenerator(sequenceName = "custId_seq", allocationSize = 1, name = "custId_seq")
 	private int custId;
 	private String cust_name;
-	//private Date date_creation;
+	//private LocalDate date_creation;
 	private double account_balance;
 	private String addressLine1;
 	private String addressLine2;
@@ -26,10 +27,8 @@ public class Account {
 	private String country;
 	private int zipCode;
 	private int aadhar;
-	private String contact;
+	private long contact;
 	private Date lastUpdated;
-	
-	
 
 
 	public Date getLastUpdated() {
@@ -40,11 +39,11 @@ public class Account {
 		this.lastUpdated = lastUpdated;
 	}
 
-	public long getAccountNumber() {
+	public int getAccountNumber() {
 		return accountNumber;
 	}
 
-	public void setAccountNumber(long accountNumber) {
+	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
@@ -56,11 +55,11 @@ public class Account {
 		this.cust_name = cust_name;
 	}
 
-	/*public Date getDate_creation() {
+	/*public LocalDate getDate_creation() {
 		return date_creation;
 	}
 
-	public void setDate_creation(Date date_creation) {
+	public void setDate_creation(LocalDate date_creation) {
 		this.date_creation = date_creation;
 	}*/
 
@@ -68,8 +67,8 @@ public class Account {
 		return account_balance;
 	}
 
-	public void setAccount_balance(double account_balance) {
-		this.account_balance = account_balance;
+	public void setAccount_balance(double d) {
+		this.account_balance = d;
 	}
 
 	public int getCustId() {
@@ -136,11 +135,11 @@ public class Account {
 		this.aadhar = aadhar;
 	}
 
-	public String getContact() {
+	public long getContact() {
 		return contact;
 	}
 
-	public void setContact(String contact) {
+	public void setContact(long contact) {
 		this.contact = contact;
 	}
 	

@@ -68,7 +68,7 @@ public class DebitService {
     	else 
     		return "Transaction Failed, Please try again";
     }
-	public String getbalance(long accid) {
+	public String getbalance(int accid) {
 		Account acc= adao.getAccountByAccnum(accid);
 		
 		return "Account balance:"+acc.getAccount_balance();

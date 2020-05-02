@@ -18,7 +18,7 @@ public class Cheque
 {
 	@Id
 	private int cheque_id;
-	private long account_id;
+	private int account_id;
 	@Column(name="bankname")
 	private String bank_name;
 	private String ifsc;
@@ -26,7 +26,7 @@ public class Cheque
 	private Date issued_date;
 	private String status;
 	public Cheque() {}
-	public Cheque(int cheque_id, long account_id, String bank_name, String ifsc, Date issued_date, String status) 
+	public Cheque(int cheque_id, int account_id, String bank_name, String ifsc, Date issued_date, String status) 
 	{
 		this.cheque_id = cheque_id;
 		this.account_id = account_id;
@@ -41,10 +41,10 @@ public class Cheque
 	public void setCheque_id(int cheque_id) {
 		this.cheque_id = cheque_id;
 	}
-	public long getAccount_id() {
+	public int getAccount_id() {
 		return account_id;
 	}
-	public void setAccount_id(long account_id) {
+	public void setAccount_id(int account_id) {
 		this.account_id = account_id;
 	}
 	public String getBank_name() {

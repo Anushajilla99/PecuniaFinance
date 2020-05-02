@@ -73,10 +73,10 @@ public class CustomerController {
 	
 
 	@PutMapping("/Adminlogin")
-	public ResponseEntity<String> adminLoginUser(@RequestBody Customerdata c)
+	public ResponseEntity<String> adminLoginUser(@PathVariable String customerName,@PathVariable String customerPassword)
 	{
 		
-		 boolean flag=serviceobj.adminLoginCustomer(c);
+		 boolean flag=serviceobj.adminLoginCustomer(customerName,customerPassword);
 		if(flag==false)
 		{
 			throw new CustomerNotFoundException("Customer not found");

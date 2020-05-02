@@ -45,7 +45,7 @@ public class DebitController {
 		return new ResponseEntity<>(b,HttpStatus.OK);
 	}
 	@GetMapping(value="/checkbalance/{accid}")
-	public ResponseEntity<String> accountBalance(@PathVariable long accid)
+	public ResponseEntity<String> accountBalance(@PathVariable int accid)
 	{
 		String b = debitService.getbalance(accid);
 		return new ResponseEntity<>(b,HttpStatus.OK);

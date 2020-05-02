@@ -7,10 +7,10 @@ import com.capgemini.pecunia.bean.Transaction;
 
 public interface PassbookMaintenanceService {
 
-	List<Transaction> updatePassbook(long accountId);
-	void updatelastUpdated(long accountId);
+	List<Transaction> updatePassbook(int accountId);
+	void updatelastUpdated(int accountId);
 	
-	List<Transaction> accountSummary(long accountId,Date startDate,Date endDate);
+	List<Transaction> accountSummary(int accountId,Date startDate,Date endDate);
 
 	 
 }

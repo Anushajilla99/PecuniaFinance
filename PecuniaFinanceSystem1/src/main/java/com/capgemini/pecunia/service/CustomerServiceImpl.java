@@ -41,9 +41,9 @@ public Customerdata updateCustomer(Customerdata c) {
 }
 
 @Override
-public Boolean adminLoginCustomer(Customerdata c)
+public Boolean adminLoginCustomer(String customerName,String customerPassword)
 {
-	return dao.adminLoginCustomer(c);
+	return dao.adminLoginCustomer(customerName,customerPassword);
 }
 
 @Override

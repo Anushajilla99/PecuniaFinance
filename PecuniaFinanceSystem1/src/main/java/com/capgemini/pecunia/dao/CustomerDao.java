@@ -17,7 +17,7 @@ public interface CustomerDao {
 
 	Customerdata updateCustomer(Customerdata c);
 
-	Boolean adminLoginCustomer(Customerdata c);
+	Boolean adminLoginCustomer(String customerName,String customerPassword);
 	
 	
 }

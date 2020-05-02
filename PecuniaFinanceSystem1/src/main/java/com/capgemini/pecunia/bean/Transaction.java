@@ -26,7 +26,7 @@ public class Transaction
 	@Column(name="trans_id")
 	private int transId;
 	@Column(name="account_id")
-	private long accId;
+	private int accId;
 	@Column(name="type")
 	private String type;
 	@Column(name="amount")
@@ -39,7 +39,7 @@ public class Transaction
 	public Transaction() 
 	{
 	}
-	public Transaction(int transId, long accId, String type, double amount, Cheque cheque, LocalDate dateOfTrans) 
+	public Transaction(int transId, int accId, String type, double amount, Cheque cheque, LocalDate dateOfTrans) 
 	{
 		this.transId = transId;
 		this.accId = accId;
@@ -54,10 +54,10 @@ public class Transaction
 	public void setTransId(int transId) {
 		this.transId = transId;
 	}
-	public long getAccId() {
+	public int getAccId() {
 		return accId;
 	}
-	public void setAccId(long accId) {
+	public void setAccId(int accId) {
 		this.accId = accId;
 	}
 	public String getType() {

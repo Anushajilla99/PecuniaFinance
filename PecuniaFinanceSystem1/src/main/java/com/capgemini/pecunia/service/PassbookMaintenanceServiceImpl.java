@@ -19,18 +19,18 @@ public class PassbookMaintenanceServiceImpl implements PassbookMaintenanceServic
 	@Autowired
 	private PassbookMaintenanceDAO dao;
 	
-	public List<Transaction> updatePassbook(long accountId){
+	public List<Transaction> updatePassbook(int accountId){
 		return dao.updatePassbook(accountId);
 	}
 
 	@Override
-	public void updatelastUpdated(long accountId) {
+	public void updatelastUpdated(int accountId) {
 		 dao.updatelastUpdated(accountId);
 		 
 	}
 	
 	@Override
-	public List<Transaction> accountSummary(long accountId, Date startDate, Date endDate) {
+	public List<Transaction> accountSummary(int accountId, Date startDate, Date endDate) {
 		System.out.println("in service");
 		return dao.accountSummary(accountId, startDate, endDate);
 	}

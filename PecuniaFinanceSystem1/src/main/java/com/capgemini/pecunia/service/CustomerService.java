@@ -16,6 +16,6 @@ public interface CustomerService {
 
 	Customerdata updateCustomer(Customerdata c);
 	
-	Boolean adminLoginCustomer(Customerdata c);
+	Boolean adminLoginCustomer(String customerName,String customerPassword);
 
 }

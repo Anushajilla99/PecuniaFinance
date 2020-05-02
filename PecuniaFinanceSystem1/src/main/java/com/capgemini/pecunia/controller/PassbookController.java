@@ -30,7 +30,7 @@ public class PassbookController {
 
 	//printing the statements till last updated date
 	@GetMapping("/updatePassbook/{accountId}")
-	public List<Transaction> updatePassbook(@PathVariable("accountId") long accountId)
+	public List<Transaction> updatePassbook(@PathVariable("accountId") int accountId)
 	{
 			System.out.println("controller"+accountId);
 			List<Transaction> list = service.updatePassbook(accountId);
@@ -40,13 +40,13 @@ public class PassbookController {
 
 	//Updating the last updated date everytime
 	@PostMapping("/lastUpdate")
-	public void updateLastUpdated(@PathVariable long accountId){
+	public void updateLastUpdated(@PathVariable int accountId){
 		 service.updatelastUpdated(accountId);
 		 
 	}
 	
 	@GetMapping("/accountSummary/{accountId}/{startDate}/{endDate}")
-	public ResponseEntity<List<Transaction>> accountSummary(@PathVariable long accountId, @PathVariable Date startDate, @PathVariable Date endDate)
+	public ResponseEntity<List<Transaction>> accountSummary(@PathVariable int accountId, @PathVariable Date startDate, @PathVariable Date endDate)
 	{
 		System.out.println(accountId);
 		System.out.println(startDate);
