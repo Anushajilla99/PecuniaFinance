@@ -47,7 +47,7 @@ public Boolean adminLoginCustomer(String customerName,String customerPassword)
 }
 
 @Override
-public Boolean login(Customerdata c)
+public String login(Customerdata c)
 {
 	return dao.login(c);
 }

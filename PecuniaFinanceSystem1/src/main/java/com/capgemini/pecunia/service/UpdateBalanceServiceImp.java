@@ -3,14 +3,18 @@ package com.capgemini.pecunia.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capgemini.pecunia.dao.AccountDao;
 import com.capgemini.pecunia.dao.UpdateBalanceDao;
+import com.capgemini.pecunia.bean.Account;
 import com.capgemini.pecunia.bean.LoanDisbursal;
 
 @Service
 public class UpdateBalanceServiceImp implements UpdateBalanceService {
 	@Autowired
 	UpdateBalanceDao dao;
-
+	 @Autowired
+	 AccountDao adao;
+	   
 	@Override
 	public String updateBalance(LoanDisbursal loandis) {
 		if ((loandis.getLoanAmount() - loandis.getEmi()) > 0) {
@@ -25,6 +29,10 @@ public class UpdateBalanceServiceImp implements UpdateBalanceService {
 			loandis.setLoanStatus(loandis.getLoanStatus());
 			loandis.setLoanTenure(loandis.getLoanTenure() - 1);
 			loandis.setLoanType(loandis.getLoanType());
+			//Account a=new Account();
+			//a.setAccount_balance(amount);
+			Account acc= adao.getAccountByAccnum(loandis.getAccountId());
+	    	acc.setAccount_balance(amount);
 			System.out.println(loandis);
 			dao.save(loandis);
 

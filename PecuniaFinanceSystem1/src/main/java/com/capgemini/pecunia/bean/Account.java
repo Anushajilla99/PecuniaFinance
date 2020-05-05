@@ -18,8 +18,6 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "accId")
 	@SequenceGenerator(name = "accId",sequenceName = "accId", allocationSize=50)
 	private int accountNumber;
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "custId")
-	@SequenceGenerator(name = "custId",sequenceName = "custId", allocationSize=50)
 	private int custId;
 	private String cust_name;
 	//private LocalDate date_creation;

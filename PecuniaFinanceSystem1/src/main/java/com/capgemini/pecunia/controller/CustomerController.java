@@ -85,18 +85,26 @@ public class CustomerController {
 		}
 	}
 	
-	@PutMapping("/login")
+	/*@PutMapping("/login")
 	public ResponseEntity<String> login(@RequestBody Customerdata c)
 	{
 		
-		 boolean flag=serviceobj.login(c);
+		 String flag=serviceobj.login(c);
 		if(flag==false)
 		{
 			throw new CustomerNotFoundException("Customer not found");
 		}else {
 			return new ResponseEntity<String>("customer Login successful", new HttpHeaders(), HttpStatus.OK);
 		}
+	}*/
+	@PutMapping("/Login")
+	public String login(@RequestBody Customerdata c)
+	{
+		 String flag = null;
+		 String type=serviceobj.login(c);
+		 return type;
 	}
+	
 	
 
 

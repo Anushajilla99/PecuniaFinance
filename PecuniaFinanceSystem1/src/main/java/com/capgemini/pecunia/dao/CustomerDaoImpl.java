@@ -76,8 +76,8 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 	
 	@Override
-	public Boolean login(Customerdata c) {
-		String a=c.getCustomerName();
+	public String login(Customerdata c) {
+		/*String a=c.getCustomerName();
 		String b=c.getCustomerPassword();
 		Query q=em.createQuery("select m.customerType from Customerdata m where m.customerName=?1 and m.customerPassword=?2");
 		q.setParameter(1, a);
@@ -99,7 +99,30 @@ public class CustomerDaoImpl implements CustomerDao {
         e.printStackTrace();
     }}
 	return flag;
-	}
+	}*/
+			String type = null;
+			String flag = null;
+		Query q=em.createQuery("select m.userType from Userdata m where m.username=?1 and m.userPassword=?2");
+		String a=c.getCustomerName();
+		String b=c.getCustomerPassword();
+		q.setParameter(1,a);
+		q.setParameter(2,b);
+		try
+		{
+			type=(String) q.getSingleResult();
+			if(type.equalsIgnoreCase("admin") && type!=null) {
+				 flag="admin";
+			 }
+			 else if(!type.equalsIgnoreCase("admin") && type!=null)
+				 flag="student";
+			return flag;
+		}catch(javax.persistence.NoResultException e)
+	    {
+	        e.printStackTrace();
+	    }
+		return "no";
+		}
+
 
 }
 	
