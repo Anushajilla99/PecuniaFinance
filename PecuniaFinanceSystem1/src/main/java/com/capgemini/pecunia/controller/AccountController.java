@@ -32,10 +32,11 @@ public class AccountController {
 	@PostMapping("/AccountCreation")
 	public ResponseEntity<String> accountCreation(@RequestBody Account ac) {
 		Account a = serviceobj.accountCreation(ac);
+		//int a1=a.getAccountNumber();
 		if (a == null) {
 			throw new IdNotFoundException("Enter Valid Id");
 		} else {
-			return new ResponseEntity<String>(" created successfully", new HttpHeaders(), HttpStatus.OK);
+			return new ResponseEntity<String>("Account created successfully"+a.getAccountNumber() +"is your account number", new HttpHeaders(), HttpStatus.OK);
 		}
 	}
 

@@ -5,17 +5,21 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "Account5")
 public class Account {
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "accId")
+	@SequenceGenerator(name = "accId",sequenceName = "accId", allocationSize=50)
 	private int accountNumber;
-	//@SequenceGenerator(sequenceName = "custId_seq", allocationSize = 1, name = "custId_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "custId")
+	@SequenceGenerator(name = "custId",sequenceName = "custId", allocationSize=50)
 	private int custId;
 	private String cust_name;
 	//private LocalDate date_creation;
@@ -29,8 +33,6 @@ public class Account {
 	private int aadhar;
 	private long contact;
 	private Date lastUpdated;
-
-
 	public Date getLastUpdated() {
 		return lastUpdated;
 	}

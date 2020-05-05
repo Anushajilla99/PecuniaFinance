@@ -17,6 +17,7 @@ import com.capgemini.pecunia.bean.LoanDisbursal;
 import com.capgemini.pecunia.bean.LoanRequests;
 import com.capgemini.pecunia.service.LoanDisbursalService;
 import com.capgemini.pecunia.service.LoanRequestService;
+import com.capgemini.pecunia.service.UpdateBalanceService;
 
 import antlr.collections.List;
 
@@ -27,7 +28,10 @@ public class LoanController {
 	@Autowired
 	LoanRequestService service;
 	@Autowired
-	LoanDisbursalService service1;               
+	LoanDisbursalService service1; 
+	@Autowired
+	UpdateBalanceService service2;               
+	
 	@PostMapping("/request")
 	public ResponseEntity<String> loanRequest(@RequestBody LoanRequests loanreq) {
 		String request = service.loanRequest(loanreq);
@@ -45,6 +49,13 @@ public class LoanController {
 	public ArrayList<LoanDisbursal> getRejectedLoans() {
 		return (ArrayList<LoanDisbursal>) service1.getRejectedLoans();
 	}
+	@PostMapping("/updateBal")
+	public ResponseEntity<String> updateBal(@RequestBody LoanDisbursal loandis) {
+		System.out.println(loandis);
+		String update= service2.updateBalance(loandis);
+		return new ResponseEntity<String>(update, new HttpHeaders(), HttpStatus.OK);
+	}
+
 }
 
 
