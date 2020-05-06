@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capgemini.pecunia.exceptions.AccountIdNotFound;
 import com.capgemini.pecunia.bean.Transaction;
 import com.capgemini.pecunia.service.PassbookMaintenanceService;
 
@@ -30,17 +31,26 @@ public class PassbookController {
 	
 
 	//printing the statements till last updated date
-	@GetMapping("/updatePassbook/{accountId}")
+	/*@GetMapping("/updatePassbook/{accountId}")
 	public List<Transaction> updatePassbook(@PathVariable("accountId") int accountId)
 	{
 			System.out.println("controller"+accountId);
 			List<Transaction> list = service.updatePassbook(accountId);
 			service.updatelastUpdated(accountId);
 			return list;
-	}
+	}*/
+	//Fetching the transactions till last updated date
+		@GetMapping("/updatePassbook/{accountId}")
+		public  ResponseEntity<List<Transaction>> updatePassbook(@PathVariable int accountId) throws AccountIdNotFound
+		{
+			
+				List<Transaction> list = service.updatePassbook(accountId);
+				return new ResponseEntity<List<Transaction>>(list, new HttpHeaders(), HttpStatus.OK);
+			}
+		
 
 	//Updating the last updated date everytime
-	@PutMapping("/lastUpdate")
+	@PutMapping("/lastUpdate/{accountId}")
 	public void updateLastUpdated(@PathVariable int accountId){
 		 service.updatelastUpdated(accountId);
 		 
@@ -49,14 +59,16 @@ public class PassbookController {
 	@GetMapping("/accountSummary/{accountId}/{startDate}/{endDate}")
 	public ResponseEntity<List<Transaction>> accountSummary(@PathVariable int accountId, @PathVariable Date startDate, @PathVariable Date endDate)
 	{
-		System.out.println(accountId);
-		System.out.println(startDate);
-		System.out.println(endDate);
-		System.out.println("in controller");
-
-		List<Transaction> list = service.accountSummary(accountId, startDate, endDate);
+				List<Transaction> list = service.accountSummary(accountId, startDate, endDate);
 		return new ResponseEntity<List<Transaction>>(list, new HttpHeaders(), HttpStatus.OK);
 	}
+	
+	//Validating accountId whether is is present or not.
+		@GetMapping("/accountValidation/{accountId}")
+		public boolean accountValidation(@PathVariable int accountId) {
+			return service.accountValidation(accountId);
+		}
+
 
 }
 	
