@@ -17,7 +17,6 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 	@Override
 	public Customerdata addCustomer(Customerdata c) {
-		// TODO Auto-generated method stub
 		Customerdata e=em.merge(c);
 		return e;
 	}
@@ -56,14 +55,6 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 	@Override
 	public Boolean adminLoginCustomer(String customerName,String customerPassword) {
-		/*String a=customerName.getCustomerName();
-		String b=c.getCustomerPassword();
-		Query q=em.createQuery("select m.customerType from Customerdata m where m.customerName=?1 and m.customerPassword=?2");
-		q.setParameter(1, a);
-		q.setParameter(2,b);
-		Object result = q.getSingleResult();
-		String customerType=result.toString();
-		boolean flag=false;*/
 		if(customerName.contentEquals("admin66")&&customerPassword.contentEquals("admin66"))
 		{
 			return true;
@@ -77,29 +68,6 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 	@Override
 	public String login(Customerdata c) {
-		/*String a=c.getCustomerName();
-		String b=c.getCustomerPassword();
-		Query q=em.createQuery("select m.customerType from Customerdata m where m.customerName=?1 and m.customerPassword=?2");
-		q.setParameter(1, a);
-		q.setParameter(2,b);
-		Object result = q.getSingleResult();
-		String customerType=result.toString();
-		boolean flag=false;
-		if(customerType.contentEquals("customer"))
-		{
-	Query q1=em.createQuery("select m from Customerdata m where m.customerName=?1 and m.customerPassword=?2");
-	q1.setParameter(1, a);
-	q1.setParameter(2,b);
-	try
-	{
-		Object m=q.getSingleResult();
-		flag=true;
-	}catch(javax.persistence.NoResultException e)
-    {
-        e.printStackTrace();
-    }}
-	return flag;
-	}*/
 			String type = null;
 			String flag = null;
 		Query q=em.createQuery("select m.customerType from Customerdata m where m.customerName=?1 and m.customerPassword=?2");

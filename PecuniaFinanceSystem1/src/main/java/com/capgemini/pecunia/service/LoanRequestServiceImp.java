@@ -24,7 +24,6 @@ public class LoanRequestServiceImp implements LoanRequestService {
 	}
 	@Override
 	public ArrayList<LoanRequests> getAllRequests() {
-		// TODO Auto-generated method stub
 		return (ArrayList<LoanRequests>) dao.findAll();
 	}
 }

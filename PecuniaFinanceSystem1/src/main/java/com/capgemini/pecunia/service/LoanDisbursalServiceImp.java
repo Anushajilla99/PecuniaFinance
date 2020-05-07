@@ -15,7 +15,6 @@ public class LoanDisbursalServiceImp implements LoanDisbursalService {
 	@SuppressWarnings("rawtypes")
 	@Override
 	public List<LoanDisbursal> getApproveLoans() {
-		// TODO Auto-generated method stub
 		ArrayList<LoanRequests> approve = dao.getApprovedLoans();
 		Iterator iter = approve.iterator();
 		while (iter.hasNext()) {

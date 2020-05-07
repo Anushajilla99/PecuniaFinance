@@ -28,7 +28,7 @@ public class CreditController {
 	{
 		return new ResponseEntity<>("Account not found",HttpStatus.NOT_FOUND);
 	}
-	
+	//CREDIT USING SLIP
 	@PostMapping(value="/creditusingslip",consumes= {"application/json","application/xml"})
     public ResponseEntity<String> creditUsingSlip(@RequestBody() Transaction transaction)
     {
@@ -39,6 +39,7 @@ public class CreditController {
     	else
     		return new ResponseEntity<>("Failed",HttpStatus.NOT_ACCEPTABLE);
     }
+	//CREDIT USING CHEQUE
 	@PostMapping(value="/creditusingcheque",consumes= {"application/json","application/xml"})
 	public ResponseEntity<String> creditUsingCheque(@RequestBody() Cheque cheque) 
 	{

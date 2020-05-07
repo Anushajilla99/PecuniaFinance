@@ -29,10 +29,10 @@ public class UpdateBalanceServiceImp implements UpdateBalanceService {
 			loandis.setLoanStatus(loandis.getLoanStatus());
 			loandis.setLoanTenure(loandis.getLoanTenure() - 1);
 			loandis.setLoanType(loandis.getLoanType());
-			//Account a=new Account();
-			//a.setAccount_balance(amount);
 			Account acc= adao.getAccountByAccnum(loandis.getAccountId());
-	    	acc.setAccount_balance(amount);
+		    double am=acc.getAccount_balance();
+		    double am1=am+loandis.getEmi();
+	    	acc.setAccount_balance(am1);
 			System.out.println(loandis);
 			dao.save(loandis);
 

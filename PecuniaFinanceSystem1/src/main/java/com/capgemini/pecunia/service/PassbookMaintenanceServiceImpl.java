@@ -28,17 +28,7 @@ public class PassbookMaintenanceServiceImpl implements PassbookMaintenanceServic
 	Date date=new Date(millis); 
 	
 	
-	/*@Override
-	public List<Transaction> updatePassbook(int accountId){
-		return dao.updatePassbook(accountId);
-	}
-
-	@Override
-	public void updatelastUpdated(int accountId) {
-		 dao.updatelastUpdated(accountId);
-		 
-	}*/
-
+	
 public List<Transaction> updatePassbook(int accountId){
 		
 		List<Transaction> result=dao.updatePassbook(accountId);

@@ -16,19 +16,12 @@ public interface PassbookMaintenanceDAO extends JpaRepository<Account, String> {
 	 
 	
 	
-	/*@Query("select t from Transaction t where t.dateOfTrans<=(select lastUpdated from Account where accountNumber=?1)")
-	List<Transaction> updatePassbook(int accountId);*/
 	@Query("select t from Transaction t where accId=?1 and t.dateOfTrans<=(select lastUpdated from Account where accountNumber=?1) ")
 	List<Transaction> updatePassbook(int accountId);
 
 	@Modifying
 	@Query("update Account set lastUpdated=?2 where  accountNumber=?1")
 	void update(int accountId, Date date);
-
-	
-	/*@Modifying
-	@Query("Update Account set lastUpdated=(select MAX(dateOfTrans) as MaximumDate from Transaction) where accountNumber=?1")
-	void updatelastUpdated(int accountId);*/
 	
 	@Query("select s from Transaction s where accId=?1 and s.dateOfTrans>?2 and s.dateOfTrans<?3")
 	List<Transaction> accountSummary(int accountId, Date startDate,Date endDate);

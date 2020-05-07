@@ -15,7 +15,6 @@ public class AccountDaoImpl implements AccountDao {
 	
 	@Override
 	public Account accountCreation(Account ac) {
-		// TODO Auto-generated method stub
 		Account a=em.merge(ac);
 		return a;
 	}

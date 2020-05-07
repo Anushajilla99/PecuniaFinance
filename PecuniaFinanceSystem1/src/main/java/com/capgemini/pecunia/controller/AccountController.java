@@ -2,6 +2,7 @@ package com.capgemini.pecunia.controller;
 
 import java.util.List;
 
+import com.capgemini.pecunia.exceptions.AccountIdNotFound;
 import com.capgemini.pecunia.exceptions.IdNotFoundException;
 import com.capgemini.pecunia.service.AccountService;
 
@@ -32,7 +33,6 @@ public class AccountController {
 	@PostMapping("/AccountCreation")
 	public ResponseEntity<String> accountCreation(@RequestBody Account ac) {
 		Account a = serviceobj.accountCreation(ac);
-		//int a1=a.getAccountNumber();
 		if (a == null) {
 			throw new IdNotFoundException("Enter Valid Id");
 		} else {
@@ -71,8 +71,8 @@ public class AccountController {
 	}
 
 	// Deleting account
-	@DeleteMapping("/DeleteAccount/{accountNumber}")
-	private ResponseEntity<String> delAc(@PathVariable("accountNumber") int accountNumber) {
+	@DeleteMapping("/DeleteAccount/{accountNumber}") 
+	private ResponseEntity<String> delAc(@PathVariable("accountNumber") int accountNumber) throws AccountIdNotFound {
 		Account a = serviceobj.deleteByAccountnum(accountNumber);
 		if (a == null) {
 			throw new IdNotFoundException("Delete Operation Unsuccessful,Provided Id does not exist");

@@ -31,24 +31,28 @@ public class LoanController {
 	LoanDisbursalService service1; 
 	@Autowired
 	UpdateBalanceService service2;               
-	
+	//LOAN REQUEST
 	@PostMapping("/request")
 	public ResponseEntity<String> loanRequest(@RequestBody LoanRequests loanreq) {
 		String request = service.loanRequest(loanreq);
 		return new ResponseEntity<String>(request, new HttpHeaders(), HttpStatus.OK);
 	}
+	//GETTING ALL LOAN REQUESTS
 	@GetMapping("/getAllRequests")
 	public ArrayList<LoanRequests> getAllRequests(){
 		return service.getAllRequests();
 	}
+	//GETTING ALL APPROVED LOAN REQUESTS
 	@GetMapping("/approvedrequests")
 	public ArrayList<LoanDisbursal> getApproveLoans() {
 		return (ArrayList<LoanDisbursal>) service1.getApproveLoans();
 	}
+	//GETTING ALL REJECTED LOAN REQUESTS
 	@GetMapping("/rejectedrequests")
 	public ArrayList<LoanDisbursal> getRejectedLoans() {
 		return (ArrayList<LoanDisbursal>) service1.getRejectedLoans();
 	}
+	//UPDATING BALANCE
 	@PostMapping("/updateBal")
 	public ResponseEntity<String> updateBal(@RequestBody LoanDisbursal loandis) {
 		System.out.println(loandis);

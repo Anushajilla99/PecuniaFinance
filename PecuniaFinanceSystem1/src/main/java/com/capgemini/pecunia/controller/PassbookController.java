@@ -30,15 +30,6 @@ public class PassbookController {
 	private PassbookMaintenanceService service;
 	
 
-	//printing the statements till last updated date
-	/*@GetMapping("/updatePassbook/{accountId}")
-	public List<Transaction> updatePassbook(@PathVariable("accountId") int accountId)
-	{
-			System.out.println("controller"+accountId);
-			List<Transaction> list = service.updatePassbook(accountId);
-			service.updatelastUpdated(accountId);
-			return list;
-	}*/
 	//Fetching the transactions till last updated date
 		@GetMapping("/updatePassbook/{accountId}")
 		public  ResponseEntity<List<Transaction>> updatePassbook(@PathVariable int accountId) throws AccountIdNotFound

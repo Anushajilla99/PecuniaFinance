@@ -71,32 +71,7 @@ public class CustomerController {
 		}
 	}
 	
-
-	@PutMapping("/Adminlogin")
-	public ResponseEntity<String> adminLoginUser(@PathVariable String customerName,@PathVariable String customerPassword)
-	{
-		
-		 boolean flag=serviceobj.adminLoginCustomer(customerName,customerPassword);
-		if(flag==false)
-		{
-			throw new CustomerNotFoundException("Customer not found");
-		}else {
-			return new ResponseEntity<String>("Admin Login successful", new HttpHeaders(), HttpStatus.OK);
-		}
-	}
-	
-	/*@PutMapping("/login")
-	public ResponseEntity<String> login(@RequestBody Customerdata c)
-	{
-		
-		 String flag=serviceobj.login(c);
-		if(flag==false)
-		{
-			throw new CustomerNotFoundException("Customer not found");
-		}else {
-			return new ResponseEntity<String>("customer Login successful", new HttpHeaders(), HttpStatus.OK);
-		}
-	}*/
+  //LOGIN
 	@PutMapping("/Login")
 	public String login(@RequestBody Customerdata c)
 	{

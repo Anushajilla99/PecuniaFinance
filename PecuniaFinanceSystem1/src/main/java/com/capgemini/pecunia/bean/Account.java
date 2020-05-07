@@ -18,9 +18,7 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "accId")
 	@SequenceGenerator(name = "accId",sequenceName = "accId", allocationSize=50)
 	private int accountNumber;
-	private int custId;
 	private String cust_name;
-	//private LocalDate date_creation;
 	private double account_balance;
 	private String addressLine1;
 	private String addressLine2;
@@ -31,6 +29,7 @@ public class Account {
 	private int aadhar;
 	private long contact;
 	private Date lastUpdated;
+	
 	public Date getLastUpdated() {
 		return lastUpdated;
 	}
@@ -55,15 +54,7 @@ public class Account {
 		this.cust_name = cust_name;
 	}
 
-	/*public LocalDate getDate_creation() {
-		return date_creation;
-	}
-
-	public void setDate_creation(LocalDate date_creation) {
-		this.date_creation = date_creation;
-	}*/
-
-	public double getAccount_balance() {
+		public double getAccount_balance() {
 		return account_balance;
 	}
 
@@ -71,15 +62,7 @@ public class Account {
 		this.account_balance = d;
 	}
 
-	public int getCustId() {
-		return custId;
-	}
-
-	public void setCustId(int custId) {
-		this.custId = custId;
-	}
-
-	public String getAddressLine1() {
+		public String getAddressLine1() {
 		return addressLine1;
 	}
 

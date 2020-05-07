@@ -29,6 +29,7 @@ public class DebitController {
 	{
 		return new ResponseEntity<>("Account not found",HttpStatus.NOT_FOUND);
 	}
+	//DEBIT USING SLIP
 	@PostMapping(value="/debitusingslip",consumes= {"application/json","application/xml"})
     public ResponseEntity<String> debitUsingSlip(@RequestBody() Transaction transaction)
     {
@@ -37,6 +38,7 @@ public class DebitController {
     		return new ResponseEntity<>(b,HttpStatus.OK);
     	
     }
+	//DEBIT USING CCHEQUE
 	@PostMapping(value="/debitusingcheque",consumes= {"application/json","application/xml"})
 	public ResponseEntity<String> debitUsingCheque(@RequestBody() Cheque cheque) 
 	{
@@ -44,6 +46,7 @@ public class DebitController {
 		String b = debitService.debitUsingCheque(cheque);
 		return new ResponseEntity<>(b,HttpStatus.OK);
 	}
+	//CHECKING BALANCE OF PERTICULAR ACCOUNT
 	@GetMapping(value="/checkbalance/{accid}")
 	public ResponseEntity<String> accountBalance(@PathVariable int accid)
 	{
